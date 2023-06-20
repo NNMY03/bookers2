@@ -1,0 +1,36 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<h2>User info</h2>
+
+<h2>New book</h2>
+<%= form_with model: @book do |f| %>
+ <div class="field">
+  <%= f.label :Title %><br>
+  <%= f.text_field :title %>
+ </div>
+ <div class="field">
+  <%= f.label :Opinion %><br>
+  <%= f.text_area :body %>
+ </div>
+ <div class="submit">
+   <%= f.submit 'Create Book', class:"btn btn-secondary bg-success" %>
+ </div>
+<% end %>
+
+<h2>Book　detail</h2>
+
+<table>
+ <tbody>
+  <% @books.each do |book| %>
+   <tr>
+    <td>User_image</td>
+    <td><%= book.title %></td>
+    <td><%= book.body %></td>
+    <td>Edit</td>
+    <td>Destroy</td>
+   </tr>
+  <% end %>
+ </tbody>
+</table>
