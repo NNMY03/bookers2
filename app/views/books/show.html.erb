@@ -2,20 +2,19 @@
   <%= flash[:notice] %>
 </div>
 
-<%= render 'list', book: @book %>
+<%= render 'list', book: @newbook %>
 
 <h2>Book　detail</h2>
 
 <table>
  <tbody>
-  <% @books.each do |book| %>
    <tr>
-    <td>User_image</td>
-    <td><%= book.title %></td>
-    <td><%= book.body %></td>
+    <td><%= @book.title %></td>
+    <td><%= @book.body %></td>
     <td>Edit</td>
-    <td>Destroy</td>
+    <td>
+    <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    </td>
    </tr>
-  <% end %>
  </tbody>
 </table>
