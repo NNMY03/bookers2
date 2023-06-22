@@ -13,6 +13,8 @@
 
   <body>
     <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
     <% if user_signed_in? %>
       <li>
       <i class="fa-solid fa-house-chimney"></i>
@@ -48,6 +50,8 @@
         <%= link_to "About", about_path %>
       </li>
     <% end %>
+     </div>
+    </nav>
   </header>
     <%= yield %>
   </body>
