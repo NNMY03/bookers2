@@ -1,4 +1,13 @@
 <h2>User info</h2>
+  <%= image_tag user.get_profile_image(100,100) %>
+  <tabel>
+   <tbody>
+    <tr>
+     <th>name</th><td><%= user.name %></td>
+     <th>introduction</th><td><%= user.introduction %></td>
+    </tr>
+   </tbody>
+  </tabel>
 
 <h2>New book</h2>
 <%= form_with model: book do |f| %>
