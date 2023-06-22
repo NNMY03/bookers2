@@ -2,13 +2,13 @@
   <%= flash[:notice] %>
 </div>
 
-<%= render 'list', book: @newbook, user: @user %>
+<%= render 'list', book: @newbook, user: @newuser %>
 
 <h2>Book　detail</h2>
 
 <table>
  <tbody>
-   <tr>
+    <tr> <!--ユーザー画像とネームを追加する-->
     <td><%= @book.title %></td>
     <td><%= @book.body %></td>
     <td>Edit</td>
