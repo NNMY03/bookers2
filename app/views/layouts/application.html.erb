@@ -27,62 +27,60 @@
     <% if user_signed_in? %>
     
     <li>
-      
     <%= link_to  user_path(current_user.id), class:"nav-link text-light" do %>
     <i class="fa-solid fa-house-chimney"></i>Home
     <% end %>
     </li>
     
       <li>
-      <a class="nav-link text-light" href="/users">
+      <%= link_to users_path, class:"nav-link text-light" do %>
         <i class="fa-solid fa-users"></i>
       Users
-      </a>
+      <% end %>
       </li>
       
       <li>
-      <a class="nav-link text-light" href="/books">
+      <%= link_to books_path, class:"nav-link text-light" do %>
       <i class="fa-solid fa-book-open"></i>
       Books
-      </a>
+      <% end %>
       </li>
       
       <li>
-        <a class="nav-link text-light" rel="nofollow" data-method="delete" 
-        href="/users/sign_out">
+        <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-light" do %>
         <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
         Log out
-        </a>
+        <% end %>
       </li>
       
     <% else %>
     
       <li>
-      <a class="nav-link text-light" href="/">
+      <%= link_to root_path, class:"nav-link text-light" do %>
         <i class="fa-solid fa-house-chimney"></i>
       Home
-      </a>
+      <% end %>
       </li>
     
       <li>
-      <a class="nav-link text-light" href="/about">
+      <%= link_to about_path, class:"nav-link text-light" do %>
        <i class="fa-solid fa-link" aria-hidden="true"></i>
       About
-      </a>
+      <% end %>
       </li>
     
       <li>
-        <a class="nav-link text-light" href="/users/sign_up">
+        <%= link_to new_user_registration_path, class:"nav-link text-light" do %>
         <i class="fa-solid fa-user-plus"></i>
         Sign up
-      </a>
+      <% end %>
       </li>
       
       <li>
-        <a class="nav-link text-light" href="/users/sign_in">
+        <%= link_to new_user_session_path, class:"nav-link text-light" do %>
         <i class="fa-solid fa-right-from-bracket"></i>
         Log in
-        </a>
+        <% end %>
         </li>
       
     <% end %>
