@@ -1,5 +1,5 @@
 
-<%= render 'list', book: @newbook, user: @newuser %>
+<%= render 'list', book: @newbook, user: @user %>
 
 <div class="col-md-8 offset-md-1">
 <h2>Book　detail</h2>
@@ -9,15 +9,13 @@
    <% @book.each do |book| %>
     <tr>
     <td><%= image_tag book.user.get_profile_image(100,100) %><br>
-    <%= book.user.name %></td>
-    <td><%= book.title %></td>
+    <%= link_to book.user.name, user_path %></td>
+    <td><%= link_to book.title, book_path %></td>
     <td><%= book.body %></td>
-    <td>Edit</td>
-    <td>
     <% if book.user == current_user %>
-    <%= link_to "Destroy", books_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <td><%= link_to "Edit", edit_book_path(book.id), class:"btn btn-secondary bg-success" %></td>
+    <td><%= link_to "Destroy", book_path(book.id), class:"btn btn-secondary bg-success", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
     <% end %>
-    </td>
    </tr>
    <% end %>
  </tbody>

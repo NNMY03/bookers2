@@ -22,16 +22,17 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown" >
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto navbar-right">
       
     <% if user_signed_in? %>
-      <li>
-      <a class="nav-link text-light" href="/">
-        <i class="fa-solid fa-house-chimney"></i>
-      Home
-      </a>
-      </li>
+    
+    <li>
       
+    <%= link_to  user_path(current_user.id), class:"nav-link text-light" do %>
+    <i class="fa-solid fa-house-chimney"></i>Home
+    <% end %>
+    </li>
+    
       <li>
       <a class="nav-link text-light" href="/users">
         <i class="fa-solid fa-users"></i>
@@ -64,7 +65,7 @@
       </li>
     
       <li>
-      <a class="nav-link text-light" href="/home/about">
+      <a class="nav-link text-light" href="/about">
        <i class="fa-solid fa-link" aria-hidden="true"></i>
       About
       </a>
@@ -92,7 +93,7 @@
     </nav>
   </header>
   
-  <div class="container px-5 px-sm-0">
+  <div class="container">
     <div class="row"> 
   
     <%= yield %>
