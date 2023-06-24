@@ -1,20 +1,25 @@
-<div>
-  <%= flash[:notice] %>
-</div>
 
 <%= render 'list', book: @newbook, user: @newuser %>
 
+<div class="col-md-8 offset-md-1">
 <h2>Book　detail</h2>
 
-<table>
+<table class="table">
  <tbody>
-    <tr> <!--ユーザー画像とネームを追加する-->
-    <td><%= @book.title %></td>
-    <td><%= @book.body %></td>
+   <% @book.each do |book| %>
+    <tr>
+    <td><%= image_tag book.user.get_profile_image(100,100) %><br>
+    <%= book.user.name %></td>
+    <td><%= book.title %></td>
+    <td><%= book.body %></td>
     <td>Edit</td>
     <td>
-    <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <% if book.user == current_user %>
+    <%= link_to "Destroy", books_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <% end %>
     </td>
    </tr>
+   <% end %>
  </tbody>
 </table>
+</div>

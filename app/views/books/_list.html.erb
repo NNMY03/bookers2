@@ -1,23 +1,34 @@
 
-<div class="container px-5 px-sm-0">
- <div class="low">
-  　<div class="col-md-3">
+<div class="col-md-3">
+ 
+ <div>
+  <%= flash[:notice] %>
+</div>
+
 <h2>User info</h2>
-  <%= image_tag user.get_profile_image(100,100) %><br>
-  <tabel>
+  <%= image_tag user.get_profile_image(100,100) %>
+  <table class="table">
    <tbody>
+    <tr></tr>
     <tr>
-     <th>name</th><td><%= user.name %></td><br>
-     <th>introduction</th><td><%= user.introduction %></td><br>
-     <td>
-     <%= link_to edit_user_path(current_user.id), class: "btn border", method: :get do %></td>
+     <th>name</th>
+     <th><%= user.name %></th>
+     </tr>
+     
+   <tr>  
+     <th>introduction</th>
+     <th><%= user.introduction %></th>
+   </tr>
+   </tbody>
+   </table>
+   
+   <div class="row">
+     <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block edit_user", method: :get do %></td>
      <i class="fa-solid fa-user-gear"></i> 
      <% end %>
-    </tr>
-   </tbody>
-  </tabel>
+    </div>
 
-<h2>New book</h2>
+<h2 class="mt-3">New book</h2>
 <%= form_with model: book do |f| %>
  <div class="field">
   <%= f.label :Title %><br>
@@ -31,6 +42,4 @@
    <%= f.submit 'Create Book', class:"btn btn-secondary bg-success" %>
  </div>
 <% end %>
-</div>
-</div>
 </div>

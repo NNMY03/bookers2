@@ -22,8 +22,9 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown" >
-    <% if user_signed_in? %>
     <ul class="navbar-nav ml-auto">
+      
+    <% if user_signed_in? %>
       <li>
       <a class="nav-link text-light" href="/">
         <i class="fa-solid fa-house-chimney"></i>
@@ -46,7 +47,8 @@
       </li>
       
       <li>
-        <a class="nav-link text-light" rel="nofollow" date-method="delete" href="/users/sing_out">
+        <a class="nav-link text-light" rel="nofollow" data-method="delete" 
+        href="/users/sign_out">
         <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
         Log out
         </a>
@@ -55,35 +57,57 @@
     <% else %>
     
       <li>
-        <a class="nav-link text-light" href="/users"></a>
-        <i class="fa-solid fa-user-plus"></i>
-        <%= link_to "Sign up", new_user_registration_path %>
-      </li>
-      
-      <li>
-        <a class="nav-link text-light" href="/users"></a>
-        <i class="fa-solid fa-right-from-bracket"></i>
-        <%= link_to "Log in", new_user_session_path %>
-      </li>
-      
-      <li>
-        <a class="nav-link text-light" href="/users"></a>
+      <a class="nav-link text-light" href="/">
         <i class="fa-solid fa-house-chimney"></i>
-        <%= link_to "Home", root_path %>
+      Home
+      </a>
+      </li>
+    
+      <li>
+      <a class="nav-link text-light" href="/home/about">
+       <i class="fa-solid fa-link" aria-hidden="true"></i>
+      About
+      </a>
+      </li>
+    
+      <li>
+        <a class="nav-link text-light" href="/users/sign_up">
+        <i class="fa-solid fa-user-plus"></i>
+        Sign up
+      </a>
       </li>
       
       <li>
-        <a class="nav-link text-light" href="/users"></a>
-        <i class="fa-solid fa-link"></i>
-        <%= link_to "About", about_path %>
-      </li>
+        <a class="nav-link text-light" href="/users/sign_in">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Log in
+        </a>
+        </li>
       
-      </ul>
     <% end %>
+    
+    </ul>
        </div>
      </div>
     </nav>
   </header>
+  
+  <div class="container px-5 px-sm-0">
+    <div class="row"> 
+  
     <%= yield %>
+    
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="mx-auto">
+          <p>CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>

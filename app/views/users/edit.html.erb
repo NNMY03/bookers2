@@ -1,11 +1,29 @@
-<h1>User info</h1>
+
+<div class="container">
+ <div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0 mx-auto">
+<h2>User info</h2>
 <%= form_with model: @user do |f| %>
+<div class="form-group">
  <labe for="inputName">Name</labe>
- <%= f.text_field :name, autofocus: true, id:"inputName"%>
+ <%= f.text_field :name, class:"form-control name"%>
+ </div>
+ 
+ <div class="form-group">
  <label for="inputImage">ProfileImage</label>
- <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>  
+ <%= f.file_field :profile_image, class:"form-control-file" %>  
+ </div>
+ 
+ <div class="form-group">
  <labe for="user_Introduction">Introduction</labe>
- <%= f.text_field :introduction, autofocus: true, id:"user_Introduction"%>
+ <%= f.text_field :introduction, class:"form-control introduction"%>
+ </div>
+ 
+ <div class="form-group">
  <labe for="submit"></labe>
  <%= f.submit "Update User", class:"btn btn-secondary bg-secondary" %>
+ </div>
 <% end %>
+   </div>
+ </div>
+</div>

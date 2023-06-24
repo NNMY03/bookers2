@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    
     @book = Book.new
     @books = Book.all
     @books = @user.books #全体の投稿データを
@@ -21,6 +20,7 @@ class UsersController < ApplicationController
   end
   
   def index
+    @book = Book.new
     @user = current_user
     @users = User.all
   end
@@ -29,5 +29,5 @@ end
   private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image, :title, :body, :introduction)
+    params.require(:user).permit(:name, :title, :body, :profile_image, :introduction)
   end
